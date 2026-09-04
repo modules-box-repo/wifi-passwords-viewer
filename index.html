@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0e1a" />
+    <meta name="description" content="Local Linux Wi-Fi password viewer" />
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/toolbar.css" />
+    <link rel="stylesheet" href="/css/network.css" />
+    <link rel="stylesheet" href="/css/dialog.css" />
+    <title>Wifi Passwords Viewer</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="toolbar">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg>
+          <div class="brand-copy"><h1>Wifi Passwords Viewer</h1></div>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.7A8.7 8.7 0 0 1 9.3 3.5 8.7 8.7 0 1 0 20.5 14.7Z"></path></svg>
+        </button>
+      </header>
+
+      <div id="network-list" class="network-list" aria-live="polite"></div>
+    </main>
+
+    <dialog id="error-dialog" class="error-dialog" aria-labelledby="error-title">
+      <div class="dialog-mark" aria-hidden="true">!</div>
+      <h2 id="error-title">Could not load networks</h2>
+      <p>Unable to retrieve saved network information.</p>
+    </dialog>
+
+    <script type="module" src="/js/app.js"></script>
+  </body>
+</html>

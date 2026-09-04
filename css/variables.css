@@ -1,0 +1,41 @@
+/* .. theme variables */
+:root {
+  color-scheme: dark;
+  --bg: #0a0e1a;
+  --bg-gradient: linear-gradient(135deg, #0a0e1a 0%, #111827 50%, #0f172a 100%);
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-hover: rgba(255, 255, 255, 0.08);
+  --surface-strong: rgba(255, 255, 255, 0.08);
+  --ink: #f0f4f8;
+  --muted: #8892a4;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.12);
+  --accent: #00d4ff;
+  --accent-glow: rgba(0, 212, 255, 0.3);
+  --accent-ink: #0a1628;
+  --scrim: rgb(0 0 0 / 60%);
+  --glass: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --toolbar-bg: rgba(10, 14, 26, 0.85);
+  --ease: cubic-bezier(.23, 1, .32, 1);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #e8ecf1;
+  --bg-gradient: linear-gradient(135deg, #e8ecf1 0%, #d5dce6 50%, #e2e8f0 100%);
+  --surface: rgba(255, 255, 255, 0.6);
+  --surface-hover: rgba(255, 255, 255, 0.8);
+  --surface-strong: rgba(255, 255, 255, 0.75);
+  --ink: #1a2332;
+  --muted: #5a6577;
+  --line: rgba(0, 0, 0, 0.06);
+  --line-strong: rgba(0, 0, 0, 0.1);
+  --accent: #0891b2;
+  --accent-glow: rgba(8, 145, 178, 0.25);
+  --accent-ink: #ecfeff;
+  --scrim: rgb(0 0 0 / 30%);
+  --glass: rgba(255, 255, 255, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --toolbar-bg: rgba(232, 236, 241, 0.88);
+}

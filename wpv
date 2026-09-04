@@ -1,0 +1,36 @@
+#!/bin/sh
+
+if [ "$(id -u)" -ne 0 ]; then
+    exit 1
+fi
+
+CONFIG_FILE=""
+if [ -f "/data/misc/wifi/WifiConfigStore.xml" ]; then
+    CONFIG_FILE="/data/misc/wifi/WifiConfigStore.xml"
+elif [ -f "/data/misc/apexdata/com.android.wifi/WifiConfigStore.xml" ]; then
+    CONFIG_FILE="/data/misc/apexdata/com.android.wifi/WifiConfigStore.xml"
+else
+    exit 1
+fi
+
+awk -v RS='</Network>' -v FS='\n' '
+    /<Network/ {
+        ssid=""; psk="";
+        for (i=1; i<=NF; i++) {
+            if ($i ~ /<string name="SSID">/) {
+                gsub(/.*<string name="SSID">/, "", $i)
+                gsub(/<\/string>.*/, "", $i)
+                ssid=$i
+            }
+            if ($i ~ /<string name="PreSharedKey">/) {
+                gsub(/.*<string name="PreSharedKey">/, "", $i)
+                gsub(/<\/string>.*/, "", $i)
+                psk=$i
+            }
+        }
+        if (ssid != "") {
+            if (psk == "") psk = "(open)"
+            print ssid, psk
+        }
+    }
+' "$CONFIG_FILE"

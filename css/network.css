@@ -1,0 +1,91 @@
+/* .. network list and cards */
+.network-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.network-list:empty::before {
+  display: block;
+  padding: 32px 16px;
+  color: var(--muted);
+  content: "Loading saved networks…";
+  font-size: 13px;
+  text-align: center;
+}
+.network-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 150ms var(--ease), border-color 150ms var(--ease), box-shadow 200ms var(--ease);
+  animation: card-in 250ms var(--ease) both;
+}
+.network-card:hover {
+  background: var(--surface-hover);
+  border-color: var(--line-strong);
+  box-shadow: 0 0 24px var(--accent-glow);
+}
+.network-card .wifi-icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: var(--accent);
+  filter: drop-shadow(0 0 4px var(--accent-glow));
+}
+.network-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  flex: 1;
+}
+.network-name {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 650;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.network-password {
+  color: var(--accent);
+  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eye-toggle {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  padding: 0;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  background: var(--glass);
+  color: var(--muted);
+  cursor: pointer;
+  transition: background-color 150ms var(--ease), color 150ms var(--ease), border-color 150ms var(--ease);
+}
+.eye-toggle:hover {
+  background: var(--surface-hover);
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+.eye-toggle:active { transform: scale(.94); }
+.eye-toggle svg { width: 16px; height: 16px; }
+.eye-closed { display: none; }
+.revealed .eye-open { display: none; }
+.revealed .eye-closed { display: block; }
+
+@keyframes card-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
