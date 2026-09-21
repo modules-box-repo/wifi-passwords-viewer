@@ -5,6 +5,6 @@ description=See your saved wifi passwords.
 author=YasserNull
 version=v1.0.0
 versionCode=1
-repository=https://github.com/null-box-repo/wifi-passwords-viewer
+repository=https://github.com/modules-box-repo/wifi-passwords-viewer
 install=setup.sh
 permission=root
